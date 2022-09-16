@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_computadora,menu);
+        getMenuInflater().inflate(R.menu.monitor_menu,menu);
         return true;
+    }
+
+    public void listarTodo (View view){
+
+    }
+
+    public void buscar (View view){
+
     }
 }
