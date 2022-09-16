@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
         ArrayList<Monitor> listaMonitores = new ArrayList<Monitor>();
         listaDispositivos.put("computadoras",listaComputadoras);
+        listaDispositivos.put("teclados",listaTeclados);
+        listaDispositivos.put("monitores",listaMonitores);
 
 
         Button btnCompu = findViewById(R.id.btnComputadora);
@@ -44,20 +46,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnMonitor = findViewById(R.id.btnMonitor);
+        btnMonitor.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,MonitorActivity.class);
+            intent.putExtra("listaDispositivos",listaDispositivos);
+            startActivity(intent);
+        });
+
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.monitor_menu,menu);
-        return true;
-    }
-
-    public void listarTodo (View view){
-
-    }
-
-    public void buscar (View view){
+    protected void onRestart() {
+        super.onRestart();
 
     }
 }
