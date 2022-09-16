@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        Intent intent = getIntent();
+        HashMap<String, Object> listaDispositivos = (HashMap<String, Object>)intent.getSerializableExtra("listaDispositivos");
         
 
     }
