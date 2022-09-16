@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnCompu = findViewById(R.id.btnComputadora);
         btnCompu.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,ComputerActivity.class);
-            intent.putExtra("listaComputadoras",listaDispositivos);
+            intent.putExtra("listaDispositivos",listaDispositivos);
             startActivity(intent);
         });
 
