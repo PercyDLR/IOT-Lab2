@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnTeclado = findViewById(R.id.btnTeclado);
+        btnTeclado.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,TecladoActivity.class);
+            intent.putExtra("listaDispositivos",listaDispositivos);
+            startActivity(intent);
+        });
 
 
     }
