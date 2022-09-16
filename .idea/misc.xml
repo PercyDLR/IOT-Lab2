@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_add_computar.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computadora.xml" value="0.20833333333333334" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.209375" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_computadora.xml" value="0.20833333333333334" />
       </map>
