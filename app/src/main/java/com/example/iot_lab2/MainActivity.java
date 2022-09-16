@@ -53,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnReporte = findViewById(R.id.btnReporte);
+        btnReporte.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,ReporteActivity.class);
+            intent.putExtra("listaDispositivos",listaDispositivos);
+            startActivity(intent);
+        });
+
 
     }
 
@@ -61,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Intent intent = getIntent();
         HashMap<String, Object> listaDispositivos = (HashMap<String, Object>)intent.getSerializableExtra("listaDispositivos");
-        
 
     }
 }
