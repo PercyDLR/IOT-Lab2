@@ -18,18 +18,23 @@
             android:exported="false" />
         <activity
             android:name=".ComputerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AddComputerActivity"
+            android:exported="false"
+            android:parentActivityName=".ComputerActivity"/>
         <activity
             android:name=".MonitorActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <intent-filter>
+            <action android:name="andorid.intent.action.MAIN"/>
+            <category android:name="andorid.intent.category.LAUNCHER"/>
+        </intent-filter>
         </activity>
     </application>
 

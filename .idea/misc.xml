@@ -3,15 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.33" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_monitor.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_teclado.xml" value="0.5" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_computadora.xml" value="0.33" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_teclado.xml" value="0.33" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/monitor_menu.xml" value="0.1573321932449765" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOTLab2/app/src/main/res/layout/activity_monitor.xml" value="0.2" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOTLab2/app/src/main/res/menu/monito_menu.xml" value="0.42967079948696024" />
-        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOTLab2/app/src/main/res/menu/monitor_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computadora.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.209375" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_computadora.xml" value="0.20833333333333334" />
       </map>
     </option>
   </component>
