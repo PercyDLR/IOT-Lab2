@@ -1,6 +1,8 @@
 package com.example.iot_lab2.devices;
 
-public class Teclado {
+import java.io.Serializable;
+
+public class Teclado implements Serializable {
 
     private String activo;
     private Computadora pc;

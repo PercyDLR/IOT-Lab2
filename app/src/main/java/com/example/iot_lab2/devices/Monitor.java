@@ -1,6 +1,8 @@
 package com.example.iot_lab2.devices;
 
-public class Monitor {
+import java.io.Serializable;
+
+public class Monitor implements Serializable {
     private String activo;
     private Computadora pc;
     private String marca;

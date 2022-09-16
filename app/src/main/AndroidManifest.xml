@@ -17,6 +17,9 @@
             android:name=".TecladoActivity"
             android:exported="false" />
         <activity
+            android:name=".ComputerActivity"
+            android:exported="false" />
+        <activity
             android:name=".MonitorActivity"
             android:exported="false" />
         <activity
