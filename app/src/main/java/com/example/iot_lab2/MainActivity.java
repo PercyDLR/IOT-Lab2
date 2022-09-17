@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,19 +19,33 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
+    String hey="hola";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intento = getIntent();
+
+        HashMap<String,Object> listaPrueba =(HashMap<String,Object>) intento.getSerializableExtra("listaDispositivos");
+        if(listaPrueba!=null){
+            Log.d("msg","Size de lista prueba"+listaPrueba.get("listaComputadoras"));
+        }else{
+            Log.d("msg","La lista es nula");
+        }
+
+
         HashMap<String,Object> listaDispositivos= new HashMap<String,Object>();
         ArrayList<Computadora> listaComputadoras = new ArrayList<Computadora>();
         ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
         ArrayList<Monitor> listaMonitores = new ArrayList<Monitor>();
+
+        listaComputadoras.add(new Computadora("10vdas","dell",2019,"i7"));
+        listaComputadoras.add(new Computadora("13edad","acer",2017,"i5"));
         listaDispositivos.put("computadoras",listaComputadoras);
         listaDispositivos.put("teclados",listaTeclados);
         listaDispositivos.put("monitores",listaMonitores);
-
+        Log.d("msg","tamanho lista pc "+listaComputadoras.size());
 
         Button btnCompu = findViewById(R.id.btnComputadora);
         btnCompu.setOnClickListener(view -> {
@@ -63,11 +78,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Intent intent = getIntent();
-        HashMap<String, Object> listaDispositivos = (HashMap<String, Object>)intent.getSerializableExtra("listaDispositivos");
 
-    }
 }

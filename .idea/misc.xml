@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_teclado.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_reporte.xml" value="0.228125" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/mipmap-anydpi-v26/ic_float_teclado.xml" value="0.1995" />
