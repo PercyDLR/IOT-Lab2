@@ -3,9 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/optBuscar"
-        android:onClick="buscar"
-        android:title="Buscar" />
+        android:id="@+id/app_bar_search"
+        android:onClick="mostrarDialogoBusqueda"
+        android:title="Buscar"
+        app:actionViewClass="android.widget.SearchView" />
     <item
         android:id="@+id/optTodos"
         android:onClick="listarTodo"

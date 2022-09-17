@@ -14,6 +14,9 @@
         android:theme="@style/Theme.IOTLab2"
         tools:targetApi="31">
         <activity
+            android:name=".AddMonitorActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddTecladoActivity"
             android:exported="false" />
         <activity
