@@ -23,6 +23,7 @@ import java.util.HashMap;
 
 public class MonitorActivity extends AppCompatActivity {
 
+    HashMap<String,Object> listaDispositivos;
     ArrayList<Monitor> listaMonitores;
     LinearLayout ll;
 
@@ -32,7 +33,7 @@ public class MonitorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_monitor);
         setTitle("Monitor");
 
-        HashMap<String,Object> listaDispositivos= (HashMap<String,Object>) getIntent().getSerializableExtra("listaDispositivos");
+        listaDispositivos= (HashMap<String,Object>) getIntent().getSerializableExtra("listaDispositivos");
         listaMonitores = (ArrayList<Monitor>) listaDispositivos.get("monitores");
         ll = findViewById(R.id.llMonitor);
 
@@ -56,6 +57,16 @@ public class MonitorActivity extends AppCompatActivity {
     public void listarTodo (MenuItem menuItem){
         ll.removeAllViews();
 
+        if (listaMonitores.size() == 0){
+            TextView msg = new TextView(this);
+
+            msg.setText("No hay monitores registrados");
+            msg.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            msg.setTextSize(20);
+            msg.setGravity(Gravity.CENTER);
+            ll.addView(msg);
+        }
+
         for (Monitor monitor : listaMonitores){
 
             TextView infoMonitor = new TextView(this);
@@ -73,6 +84,7 @@ public class MonitorActivity extends AppCompatActivity {
             ll.addView(infoMonitor);
 
         }
+        Log.d("msg", "# elemntos LL: " + ll.getChildCount());
     }
 
     public void mostrarDialogoBusqueda(MenuItem menuItem){
@@ -94,6 +106,7 @@ public class MonitorActivity extends AppCompatActivity {
 
         ll.removeAllViews();
         boolean encontrado = false;
+        int index = 0;
 
         for (Monitor monitor : listaMonitores){
             if (monitor.getActivo().equals(busqueda)){
@@ -107,12 +120,25 @@ public class MonitorActivity extends AppCompatActivity {
                         "Modelo: " + monitor.getModelo() + "/n";
 
                 infoMonitor.setText(msg);
+                infoMonitor.setTag(index);
                 infoMonitor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
                 infoMonitor.setTextSize(20);
+
+                infoMonitor.setOnClickListener(view -> {
+                        Monitor monitorActual = listaMonitores.get((Integer) view.getTag());
+
+                        Intent intent = new Intent(MonitorActivity.this, AddMonitorActivity.class);
+                        intent.putExtra("listaDispositivos",listaDispositivos);
+                        intent.putExtra("titulo","Actualizar");
+                        intent.putExtra("monitorActual",monitorActual);
+                        startActivity(intent);
+                    });
+
                 ll.addView(infoMonitor);
                 encontrado = true;
                 break;
             }
+            index++;
         }
 
         if (!encontrado){
@@ -131,6 +157,7 @@ public class MonitorActivity extends AppCompatActivity {
     public void agregarMonitor(View view){
         Intent intent = new Intent(MonitorActivity.this,AddMonitorActivity.class);
         intent.putExtra("titulo","Nuevo");
+        intent.putExtra("listaDispositivos",listaDispositivos);
         startActivity(intent);
     }
 }

@@ -6,7 +6,7 @@ public class Monitor implements Serializable {
     private String activo;
     private Computadora pc;
     private String marca;
-    private int pulgadas;
+    private float pulgadas;
     private int anho;
     private String modelo;
 
@@ -46,11 +46,11 @@ public class Monitor implements Serializable {
         this.marca = marca;
     }
 
-    public int getPulgadas() {
+    public float getPulgadas() {
         return pulgadas;
     }
 
-    public void setPulgadas(int pulgadas) {
+    public void setPulgadas(float pulgadas) {
         this.pulgadas = pulgadas;
     }
 

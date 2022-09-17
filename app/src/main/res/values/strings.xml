@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">IOT-Lab2</string>
+
+    <string-array name="marcas">
+        <item>HP</item>
+        <item>Lenovo</item>
+        <item>Samsung</item>
+        <item>LG</item>
+        <item>Dell</item>
+    </string-array>
 </resources>
