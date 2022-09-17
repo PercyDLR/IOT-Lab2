@@ -41,7 +41,9 @@ public class TecladoActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(TecladoActivity.this,AddTecladoActivity.class);
+                intent.putExtra("listaDispositivos",listaDispositivos);
+                startActivity(intent);
             }
         });
 
@@ -51,6 +53,10 @@ public class TecladoActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_teclado,menu);
         return true;
+    }
+
+    public void buscar(){
+
     }
 
 }
