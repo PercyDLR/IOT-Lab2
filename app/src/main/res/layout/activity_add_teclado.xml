@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".AddTecladoActivity">
 
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="PC Activo"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Marca"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="209dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Idioma"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="273dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ahno"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Modelo"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="401dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teclado"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="201dp"
+        android:layout_height="23dp"
+        tools:layout_editor_absoluteX="87dp"
+        tools:layout_editor_absoluteY="515dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

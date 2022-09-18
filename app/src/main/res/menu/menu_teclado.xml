@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/btnBuscarTeclado"
+        android:onClick="mostrarDialogoBusquedaTeclado"
         android:title="Buscar" />
     <item
         android:id="@+id/btnTodoTeclado"
