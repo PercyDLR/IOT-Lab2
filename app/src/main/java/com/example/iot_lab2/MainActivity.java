@@ -14,6 +14,7 @@ import com.example.iot_lab2.devices.Monitor;
 import com.example.iot_lab2.devices.Teclado;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,14 +35,15 @@ public class MainActivity extends AppCompatActivity {
             Log.d("msg","La lista es nula");
         }
 
-
+        String [] marcas = {"Dell","Lenovo","HP","Huawei"};
+        String [] cpu = {"GX","G20","GZ","TX"};
         HashMap<String,Object> listaDispositivos= new HashMap<String,Object>();
         ArrayList<Computadora> listaComputadoras = new ArrayList<Computadora>();
         ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
         ArrayList<Monitor> listaMonitores = new ArrayList<Monitor>();
 
-        listaComputadoras.add(new Computadora("10vdas","dell",2019,"i7"));
-        listaComputadoras.add(new Computadora("13edad","acer",2017,"i5"));
+        listaDispositivos.put("marcas",marcas);
+        listaDispositivos.put("cpu",cpu);
         listaDispositivos.put("computadoras",listaComputadoras);
         listaDispositivos.put("teclados",listaTeclados);
         listaDispositivos.put("monitores",listaMonitores);

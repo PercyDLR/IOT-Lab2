@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditComputerActivity">
+
+    <EditText
+        android:id="@+id/textAnho2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Año"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/textMarca2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textMarca2"
+        app:layout_constraintTop_toBottomOf="@+id/textMarca2" />
+
+    <EditText
+        android:id="@+id/textCPU2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="CPU"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/textAnho2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textAnho2"
+        app:layout_constraintTop_toBottomOf="@+id/textAnho2" />
+
+    <EditText
+        android:id="@+id/textMarca2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:hint="Marca"
+        android:onClick="abrirMarcasEdit"
+        app:layout_constraintEnd_toEndOf="@+id/textActivo2"
+        app:layout_constraintStart_toStartOf="@+id/textActivo2"
+        app:layout_constraintTop_toBottomOf="@+id/textActivo2" />
+
+    <EditText
+        android:id="@+id/textActivo2"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

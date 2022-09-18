@@ -6,4 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".AddComputerActivity">
 
+    <EditText
+        android:id="@+id/textActivo"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/textMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:hint="Marca"
+        android:onClick="abrirMarcas"
+        app:layout_constraintEnd_toEndOf="@+id/textActivo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textActivo"
+        app:layout_constraintTop_toBottomOf="@+id/textActivo" />
+
+    <EditText
+        android:id="@+id/textAnho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Año"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/textMarca"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textMarca"
+        app:layout_constraintTop_toBottomOf="@+id/textMarca" />
+
+    <EditText
+        android:id="@+id/textCPU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="CPU"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/textAnho"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textAnho"
+        app:layout_constraintTop_toBottomOf="@+id/textAnho" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
