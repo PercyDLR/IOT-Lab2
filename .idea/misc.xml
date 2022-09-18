@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_reporte.xml" value="0.33" />
+        <entry key="..\:/Users/Diego/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_teclado.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/drawable/ic_float_teclado_foreground.xml" value="0.1995" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.33" />
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_monitor.xml" value="0.19166666666666668" />
@@ -17,9 +21,8 @@
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/IOTLab2/app/src/main/res/menu/monitor_layout.xml" value="0.33" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_add_computer.xml" value="0.22" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_computer.xml" value="0.18" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_edit_computer.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_edit_computer.xml" value="0.22" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_computadora.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_computer_ok.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/IOT-Lab2/app/src/main/res/menu/menu_edit_computer.xml" value="0.15" />
       </map>

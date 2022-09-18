@@ -27,58 +27,60 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intento = getIntent();
-
+        Log.d("msg","Se está creando la activity");
+        HashMap<String,Object> listaDispositivos= new HashMap<String,Object>();
         HashMap<String,Object> listaPrueba =(HashMap<String,Object>) intento.getSerializableExtra("listaDispositivos");
-        if(listaPrueba!=null){
-            Log.d("msg","Size de lista prueba"+listaPrueba.get("listaComputadoras"));
+       if(listaPrueba!=null){
+           ArrayList<Computadora> listaComputadoras;
+           listaComputadoras = (ArrayList<Computadora>) listaPrueba.get("computadoras");
+            Log.d("msg","Size de lista prueba "+listaComputadoras.get(0).getMarca());
+            listaDispositivos=listaPrueba;
         }else{
             Log.d("msg","La lista es nula");
+           ArrayList<Computadora> listaComputadoras = new ArrayList<Computadora>();
+           ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
+           ArrayList<Monitor> listaMonitores = new ArrayList<Monitor>();
+           listaDispositivos.put("computadoras",listaComputadoras);
+           listaDispositivos.put("teclados",listaTeclados);
+           listaDispositivos.put("monitores",listaMonitores);
         }
 
         String [] marcas = {"Dell","Lenovo","HP","Huawei"};
         String [] cpu = {"GX","G20","GZ","TX"};
-        HashMap<String,Object> listaDispositivos= new HashMap<String,Object>();
-        ArrayList<Computadora> listaComputadoras = new ArrayList<Computadora>();
-        ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
-        ArrayList<Monitor> listaMonitores = new ArrayList<Monitor>();
 
         listaDispositivos.put("marcas",marcas);
         listaDispositivos.put("cpu",cpu);
-        listaDispositivos.put("computadoras",listaComputadoras);
-        listaDispositivos.put("teclados",listaTeclados);
-        listaDispositivos.put("monitores",listaMonitores);
-        Log.d("msg","tamanho lista pc "+listaComputadoras.size());
-
         Button btnCompu = findViewById(R.id.btnComputadora);
+
+        HashMap<String, Object> finalListaDispositivos = listaDispositivos;
         btnCompu.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,ComputerActivity.class);
-            intent.putExtra("listaDispositivos",listaDispositivos);
+            intent.putExtra("listaDispositivos", finalListaDispositivos);
             startActivity(intent);
         });
 
         Button btnTeclado = findViewById(R.id.btnTeclado);
         btnTeclado.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,TecladoActivity.class);
-            intent.putExtra("listaDispositivos",listaDispositivos);
+            intent.putExtra("listaDispositivos",finalListaDispositivos);
             startActivity(intent);
         });
 
         Button btnMonitor = findViewById(R.id.btnMonitor);
         btnMonitor.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,MonitorActivity.class);
-            intent.putExtra("listaDispositivos",listaDispositivos);
+            intent.putExtra("listaDispositivos",finalListaDispositivos);
             startActivity(intent);
         });
 
         Button btnReporte = findViewById(R.id.btnReporte);
         btnReporte.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,ReporteActivity.class);
-            intent.putExtra("listaDispositivos",listaDispositivos);
+            intent.putExtra("listaDispositivos",finalListaDispositivos);
             startActivity(intent);
         });
 
 
     }
-
 
 }
