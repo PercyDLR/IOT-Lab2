@@ -1,5 +1,6 @@
 package com.example.iot_lab2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,17 +38,31 @@ public class AddComputerActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_computer_ok,menu);
         return true;
     }
-    public void checkComputer(MenuItem menuItem){
-        TextView activo = findViewById(R.id.textActivo);
-        TextView marca = findViewById(R.id.textMarca);
-        TextView anho = findViewById(R.id.textAnho);
-        TextView cpu= findViewById(R.id.textCPU);
-        listaComputadoras.add(new Computadora(String.valueOf(activo.getText()),String.valueOf(marca.getText()),Integer.parseInt(String.valueOf(anho.getText())),String.valueOf(cpu.getText())));
-        listaDispositivos.put("computadoras",listaComputadoras);
-        Intent intent = new Intent(AddComputerActivity.this,ComputerActivity.class);
-        intent.putExtra("listaDispositivos",listaDispositivos);
-        startActivity(intent);
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.checkComputer:
+                TextView activo = findViewById(R.id.textActivo);
+                TextView marca = findViewById(R.id.textMarca);
+                TextView anho = findViewById(R.id.textAnho);
+                TextView cpu= findViewById(R.id.textCPU);
+                listaComputadoras.add(new Computadora(String.valueOf(activo.getText()),String.valueOf(marca.getText()),Integer.parseInt(String.valueOf(anho.getText())),String.valueOf(cpu.getText())));
+                listaDispositivos.put("computadoras",listaComputadoras);
+                Intent intent = new Intent(AddComputerActivity.this,ComputerActivity.class);
+                intent.putExtra("listaDispositivos",listaDispositivos);
+                startActivity(intent);
+                return true;
+            case android.R.id.home:
+                Intent intent3 = new Intent(AddComputerActivity.this,ComputerActivity.class);
+                intent3.putExtra("listaDispositivos",listaDispositivos);
+                startActivity(intent3);
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
+
     public void abrirMarcas(View view){
         final String [] marcas = listaMarcas;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

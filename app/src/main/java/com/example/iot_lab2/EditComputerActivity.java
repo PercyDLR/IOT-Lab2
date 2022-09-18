@@ -1,12 +1,16 @@
 package com.example.iot_lab2;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.accessibilityservice.AccessibilityButtonController;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,12 +69,14 @@ public class EditComputerActivity extends AppCompatActivity {
                         listaDispositivos.put("computadoras",listaComputadoras);
                         intent.putExtra("listaDispositivos",listaDispositivos);
                         startActivity(intent);
+                        finish();
                     }
                 });
                 alert.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        intent.putExtra("listaDispositivos",listaDispositivos);
+                        startActivity(intent);
                     }
                 });
                 alert.show();
@@ -91,6 +97,12 @@ public class EditComputerActivity extends AppCompatActivity {
                 intent2.putExtra("listaDispositivos",listaDispositivos);
                 startActivity(intent2);
                 return true;
+            case android.R.id.home:
+                Intent intent3 = new Intent(EditComputerActivity.this,ComputerActivity.class);
+                intent3.putExtra("listaDispositivos",listaDispositivos);
+                startActivity(intent3);
+                this.finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -108,4 +120,6 @@ public class EditComputerActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+
 }
