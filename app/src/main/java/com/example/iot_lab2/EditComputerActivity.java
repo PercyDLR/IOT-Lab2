@@ -55,11 +55,25 @@ public class EditComputerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.deleteComputer:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle("¿Está seguro que desea borrar la computadora?");
                 Intent intent = new Intent(EditComputerActivity.this,ComputerActivity.class);
-                listaComputadoras.remove(indice);
-                listaDispositivos.put("computadoras",listaComputadoras);
-                intent.putExtra("listaDispositivos",listaDispositivos);
-                startActivity(intent);
+                alert.setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        listaComputadoras.remove(indice);
+                        listaDispositivos.put("computadoras",listaComputadoras);
+                        intent.putExtra("listaDispositivos",listaDispositivos);
+                        startActivity(intent);
+                    }
+                });
+                alert.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                alert.show();
                 return true;
             case R.id.editCheck:
                 Intent intent2 = new Intent(EditComputerActivity.this,ComputerActivity.class);
