@@ -7,78 +7,102 @@
     tools:context=".AddTecladoActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/textActivoTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Activo"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="79dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/textPCActivoTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:editable="false"
         android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
         android:hint="PC Activo"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="145dp" />
+        android:onClick="abrirPCs"
+        app:layout_constraintEnd_toEndOf="@+id/textActivoTeclado"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textActivoTeclado"
+        app:layout_constraintTop_toBottomOf="@+id/textActivoTeclado" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/textMarcaTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:editable="false"
         android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
         android:hint="Marca"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="209dp" />
+        android:onClick="abrirMarcas"
+        app:layout_constraintEnd_toEndOf="@+id/textPCActivoTeclado"
+        app:layout_constraintStart_toStartOf="@+id/textPCActivoTeclado"
+        app:layout_constraintTop_toBottomOf="@+id/textPCActivoTeclado" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/textIdiomaTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:editable="false"
         android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
         android:hint="Idioma"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="273dp" />
+        android:onClick="abrirIdiomas"
+        app:layout_constraintEnd_toEndOf="@+id/textMarcaTeclado"
+        app:layout_constraintStart_toStartOf="@+id/textMarcaTeclado"
+        app:layout_constraintTop_toBottomOf="@+id/textMarcaTeclado" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/textAhnoTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Ahno"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="338dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textIdiomaTeclado"
+        app:layout_constraintStart_toStartOf="@+id/textIdiomaTeclado"
+        app:layout_constraintTop_toBottomOf="@+id/textIdiomaTeclado" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/textModeloTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Modelo"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="401dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textAhnoTeclado"
+        app:layout_constraintStart_toStartOf="@+id/textAhnoTeclado"
+        app:layout_constraintTop_toBottomOf="@+id/textAhnoTeclado" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Teclado"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="201dp"
-        android:layout_height="23dp"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="515dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

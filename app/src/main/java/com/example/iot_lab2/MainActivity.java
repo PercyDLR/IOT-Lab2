@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         String [] marcas = {"Dell","Lenovo","HP","Huawei"};
         String [] cpu = {"GX","G20","GZ","TX"};
+        String [] idiomas = {"Español","Ingles"};
         HashMap<String,Object> listaDispositivos= new HashMap<String,Object>();
         ArrayList<Computadora> listaComputadoras = new ArrayList<Computadora>();
         ArrayList<Teclado> listaTeclados = new ArrayList<Teclado>();
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         listaDispositivos.put("marcas",marcas);
         listaDispositivos.put("cpu",cpu);
+        listaDispositivos.put("idiomas",idiomas);
         listaDispositivos.put("computadoras",listaComputadoras);
         listaDispositivos.put("teclados",listaTeclados);
         listaDispositivos.put("monitores",listaMonitores);

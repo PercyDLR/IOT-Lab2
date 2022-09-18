@@ -1,8 +1,10 @@
 package com.example.iot_lab2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -31,23 +33,45 @@ public class TecladoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_teclado);
         Intent intentReci = getIntent();
-        HashMap<String,Object> listaDispositivos = (HashMap<String, Object>) intentReci.getSerializableExtra("listaDispositivos");
-        ArrayList<Teclado> listaTeclados = (ArrayList<Teclado>) listaDispositivos.get("teclados");
+        listaDispositivos = (HashMap<String, Object>) intentReci.getSerializableExtra("listaDispositivos");
+        listaTeclados = (ArrayList<Teclado>) listaDispositivos.get("teclados");
+        LinearLayout linearLayout = findViewById(R.id.textTeclado);
         if(listaTeclados.size() != 0){
-            TextView textView = findViewById(R.id.textNoTeclado);
-            String texto = "";
+            int i = 0;
             for(Teclado teclado : listaTeclados){
+                TextView textView =  new TextView(this);
+                String texto = "";
                 texto+="Activo: " + teclado.getActivo() +"\n";
-                texto+="PC: " + teclado.getPc() +"\n";
+                texto+="PC: " + teclado.getPc().getActivo() +"\n";
                 texto+="Marca: " + teclado.getMarca() +"\n";
                 texto+="Año: " + teclado.getAnho() +"\n";
                 texto+="Idioma: " + teclado.getIdioma() +"\n";
                 texto+="Modelo: " + teclado.getModelo() +"\n";
+                textView.setText(texto);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                int finalI = i;
+                textView.setOnClickListener(view -> {
+                    Intent intent = new Intent(TecladoActivity.this,EditTecladoActivity.class);
+                    intent.putExtra("indice", finalI);
+                    intent.putExtra("listaDispositivos", listaDispositivos);
+                    startActivity(intent);
+                    finish();
+                });
+                textView.setTextSize(20);
+                linearLayout.addView(textView);
+                i++;
             }
-            textView.setText(texto);
+        }else{
+            TextView textView =  new TextView(this);
+            textView.setText("No hay teclados registrados");
+            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            textView.setTextSize(20);
+            textView.setGravity(Gravity.CENTER);
+            linearLayout.addView(textView);
         }
-        setContentView(R.layout.activity_teclado);
+
         FloatingActionButton floatingActionButton = findViewById(R.id.floatingTeclado);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,67 +90,132 @@ public class TecladoActivity extends AppCompatActivity {
         return true;
     }
 
-    public void mostrarDialogoBusquedaTeclado(MenuItem menuItem){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch(item.getItemId()){
+            case R.id.btnBuscarTeclado:
+                busquedaTeclado();
+                return true;
+            case R.id.btnTodoTeclado:
+                listarTodo();
+                return true;
+            case android.R.id.home:
+                Intent intent3 = new Intent(TecladoActivity.this,MainActivity.class);
+                intent3.putExtra("listaDispositivos",listaDispositivos);
+                startActivity(intent3);
+                this.finish();
+                return true;
+        }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Buscar Teclado");
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public Intent getParentActivityIntent() {
+        return super.getParentActivityIntent();
+    }
+
+    public void busquedaTeclado(){
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Buscar Teclado");
 
         EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setHint("Activo");
-        builder.setView(input);
+        alertDialog.setView(input);
 
-        builder.setPositiveButton("Buscar", (dialog, which) -> buscar(input.getText().toString()));
-        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.cancel());
-        builder.show();
+        alertDialog.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                buscar(input.getText().toString());
+            }
+        });
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        alertDialog.show();
     }
 
     public void buscar(String busqueda){
+
+        int ir = 0;
+        LinearLayout linearLayout = findViewById(R.id.textTeclado);
+        linearLayout.removeAllViews();
         boolean encontrado = false;
-        int index = 0;
-
         for (Teclado teclado : listaTeclados){
+            TextView textView = new TextView(TecladoActivity.this);
             if (teclado.getActivo().equals(busqueda)){
-                TextView text = new TextView(this);
-
+                encontrado = true;
                 String msg = "Activo: " + teclado.getActivo() + "/n" +
                         "PC: " + teclado.getPc().getActivo() + "/n" +
                         "Marca: " + teclado.getMarca() + "/n" +
                         "Año: " + teclado.getAnho() + "/n" +
                         "Idioma: " + teclado.getIdioma() + "/n" +
                         "Modelo: " + teclado.getModelo() + "/n";
-
-                text.setText(msg);
-                text.setTag(index);
-                text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-                text.setTextSize(20);
-
-                text.setOnClickListener(view -> {
-                    Teclado tecladoActual = listaTeclados.get((Integer) view.getTag());
-
-                    Intent intent = new Intent(TecladoActivity.this, AddTecladoActivity.class);
-                    intent.putExtra("listaDispositivos",listaDispositivos);
-                    intent.putExtra("titulo","Actualizar");
-                    intent.putExtra("monitorActual",tecladoActual);
+                textView.setText(msg);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                int finalI = ir;
+                textView.setOnClickListener(view -> {
+                    Intent intent = new Intent(TecladoActivity.this,EditTecladoActivity.class);
+                    intent.putExtra("indice", finalI);
+                    intent.putExtra("listaDispositivos", listaDispositivos);
                     startActivity(intent);
+                    finish();
                 });
-
-                encontrado = true;
-                break;
+                textView.setTextSize(20);
+                linearLayout.addView(textView);
             }
-            index++;
+            ir++;
         }
-
         if (!encontrado){
-
-            TextView msg = new TextView(this);
-
-            msg.setText("No existe el equipo con Activo: " + busqueda);
-            msg.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-            msg.setTextSize(20);
-            msg.setGravity(Gravity.CENTER);
-
+            TextView textView =  new TextView(TecladoActivity.this);
+            textView.setText("No existe el equico con el activo " + busqueda);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            textView.setTextSize(20);
+            textView.setGravity(Gravity.CENTER);
+            linearLayout.addView(textView);
         }
     }
 
+    public void listarTodo(){
+        LinearLayout linearLayout = findViewById(R.id.textTeclado);
+        linearLayout.removeAllViews();
+        if(listaTeclados.size() != 0){
+            int i = 0;
+            for(Teclado teclado : listaTeclados){
+                TextView textView =  new TextView(this);
+                String texto = "";
+                texto+="Activo: " + teclado.getActivo() +"\n";
+                texto+="PC: " + teclado.getPc() +"\n";
+                texto+="Marca: " + teclado.getMarca() +"\n";
+                texto+="Año: " + teclado.getAnho() +"\n";
+                texto+="Idioma: " + teclado.getIdioma() +"\n";
+                texto+="Modelo: " + teclado.getModelo() +"\n";
+                textView.setText(texto);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                int finalI = i;
+                textView.setOnClickListener(view -> {
+                    Intent intent = new Intent(TecladoActivity.this,EditTecladoActivity.class);
+                    intent.putExtra("indice", finalI);
+                    intent.putExtra("listaDispositivos", listaDispositivos);
+                    startActivity(intent);
+                    finish();
+                });
+                textView.setTextSize(20);
+                linearLayout.addView(textView);
+                i++;
+            }
+        }else{
+            TextView textView =  new TextView(this);
+            textView.setText("No hay teclados registrados");
+            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            textView.setTextSize(20);
+            textView.setGravity(Gravity.CENTER);
+            linearLayout.addView(textView);
+        }
+    }
 }
