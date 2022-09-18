@@ -54,6 +54,7 @@ public class ComputerActivity extends AppCompatActivity {
                     intent.putExtra("indice", finalI);
                     intent.putExtra("listaDispositivos", listaDispositivos);
                     startActivity(intent);
+                    finish();
                 });
                 textView.setTextSize(20);
                 linearLayout.addView(textView);
