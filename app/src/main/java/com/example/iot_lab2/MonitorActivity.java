@@ -1,5 +1,6 @@
 package com.example.iot_lab2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +38,7 @@ public class MonitorActivity extends AppCompatActivity {
         listaMonitores = (ArrayList<Monitor>) listaDispositivos.get("monitores");
         ll = findViewById(R.id.llMonitor);
 
-        if (ll.getChildCount() == 0){
+        if (listaMonitores.size() == 0){
             TextView msg = new TextView(this);
 
             msg.setText("No hay monitores registrados");
@@ -45,6 +46,38 @@ public class MonitorActivity extends AppCompatActivity {
             msg.setTextSize(20);
             msg.setGravity(Gravity.CENTER);
             ll.addView(msg);
+        } else {
+            ll.removeAllViews();
+            int index = 0;
+            for (Monitor monitor : listaMonitores){
+
+                TextView infoMonitor = new TextView(this);
+
+                String msg = "Activo: " + monitor.getActivo() + "\n" +
+                        "PC: " + monitor.getActivo() + "\n" +
+                        "Marca: " + monitor.getMarca() + "\n" +
+                        "Pulgadas: " + monitor.getPulgadas() + "\n" +
+                        "Año: " + monitor.getAnho() + "\n" +
+                        "Modelo: " + monitor.getModelo();
+
+                infoMonitor.setText(msg);
+                infoMonitor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                infoMonitor.setTextSize(20);
+                infoMonitor.setTag(index);
+
+                infoMonitor.setOnClickListener(view -> {
+                    Monitor monitorActual = listaMonitores.get((Integer) view.getTag());
+
+                    Intent intent = new Intent(MonitorActivity.this, AddMonitorActivity.class);
+                    intent.putExtra("listaDispositivos",listaDispositivos);
+                    intent.putExtra("titulo","Actualizar");
+                    intent.putExtra("monitorActual",monitorActual);
+                    startActivity(intent);
+                });
+
+                ll.addView(infoMonitor);
+                index++;
+            }
         }
     }
 
@@ -67,6 +100,7 @@ public class MonitorActivity extends AppCompatActivity {
             ll.addView(msg);
         }
 
+        int index = 0;
         for (Monitor monitor : listaMonitores){
 
             TextView infoMonitor = new TextView(this);
@@ -82,7 +116,18 @@ public class MonitorActivity extends AppCompatActivity {
             infoMonitor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
             infoMonitor.setTextSize(20);
             ll.addView(infoMonitor);
+            infoMonitor.setTag(index);
 
+            infoMonitor.setOnClickListener(view -> {
+                Monitor monitorActual = listaMonitores.get((Integer) view.getTag());
+
+                Intent intent = new Intent(MonitorActivity.this, AddMonitorActivity.class);
+                intent.putExtra("listaDispositivos",listaDispositivos);
+                intent.putExtra("titulo","Actualizar");
+                intent.putExtra("monitorActual",monitorActual);
+                startActivity(intent);
+            });
+            index++;
         }
         Log.d("msg", "# elemntos LL: " + ll.getChildCount());
     }
@@ -159,5 +204,17 @@ public class MonitorActivity extends AppCompatActivity {
         intent.putExtra("titulo","Nuevo");
         intent.putExtra("listaDispositivos",listaDispositivos);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        ArrayList<Monitor> listaMonitores = (ArrayList<Monitor>) listaDispositivos.get("monitores");
+
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(MonitorActivity.this, MainActivity.class);
+            intent.putExtra("listaDispositivos", listaDispositivos);
+            startActivity(intent);
+        }
+        return true;
     }
 }

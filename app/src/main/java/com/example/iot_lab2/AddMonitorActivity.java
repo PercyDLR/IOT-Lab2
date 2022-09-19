@@ -37,7 +37,7 @@ public class AddMonitorActivity extends AppCompatActivity {
             monitorActual = (Monitor) getIntent().getSerializableExtra("monitorActual");
 
             ((EditText) findViewById(R.id.etMonitorActivo)).setText(monitorActual.getActivo());
-            ((EditText) findViewById(R.id.etMonitorPcActivo)).setText(monitorActual.getPc().getActivo());
+//            ((EditText) findViewById(R.id.etMonitorPcActivo)).setText(monitorActual.getPc().getActivo());
             ((EditText) findViewById(R.id.etMonitorMarca)).setText(monitorActual.getMarca());
             ((EditText) findViewById(R.id.etMonitorPulgadas)).setText(String.valueOf(monitorActual.getPulgadas()));
             ((EditText) findViewById(R.id.etMonitorAnho)).setText(monitorActual.getAnho());
@@ -60,7 +60,7 @@ public class AddMonitorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        Intent intent = new Intent(getApplicationContext(), MonitorActivity.class);
+        Intent intent = new Intent(AddMonitorActivity.this, MonitorActivity.class);
         ArrayList<Monitor> listaMonitores = (ArrayList<Monitor>) listaDispositivos.get("monitores");
 
         switch (item.getItemId()){
@@ -79,11 +79,10 @@ public class AddMonitorActivity extends AppCompatActivity {
 
                 listaMonitores.remove(monitorActual);
                 listaMonitores.add(monitor);
+                listaDispositivos.put("monitores", listaMonitores);
 
                 intent.putExtra("listaDispositivos",listaDispositivos);
                 startActivity(intent);
-                listaDispositivos.put("monitores", listaMonitores);
-
                 break;
             case R.id.optEliminarMonitor:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
