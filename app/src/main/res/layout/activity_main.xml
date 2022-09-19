@@ -16,13 +16,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/btnTeclado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="72dp"
         android:text="Teclado"
         app:layout_constraintEnd_toEndOf="@+id/btnComputadora"
         app:layout_constraintHorizontal_bias="0.51"
@@ -33,10 +33,10 @@
         android:id="@+id/btnMonitor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="92dp"
         android:text="Monitor"
         app:layout_constraintEnd_toEndOf="@+id/btnTeclado"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btnTeclado"
         app:layout_constraintTop_toBottomOf="@+id/btnTeclado" />
 
@@ -44,10 +44,10 @@
         android:id="@+id/btnReporte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="112dp"
         android:text="Reporte"
         app:layout_constraintEnd_toEndOf="@+id/btnMonitor"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btnMonitor"
         app:layout_constraintTop_toBottomOf="@+id/btnMonitor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

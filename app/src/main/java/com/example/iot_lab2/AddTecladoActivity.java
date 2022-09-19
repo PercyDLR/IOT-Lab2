@@ -58,7 +58,7 @@ public class AddTecladoActivity extends AppCompatActivity {
                 TextView modelo = findViewById(R.id.textModeloTeclado);
                 Computadora computer = new Computadora();
                 for(Computadora computadora : listaComputadoras){
-                    if(pc.equals(computadora.getActivo())){
+                    if(pc.getText().toString().equals(computadora.getActivo())){
                         computer = computadora;
                     }
                 }

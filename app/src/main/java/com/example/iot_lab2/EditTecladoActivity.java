@@ -35,6 +35,7 @@ public class EditTecladoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         listaDispositivos = (HashMap<String, Object>) intent.getSerializableExtra("listaDispositivos");
         listaTeclados = (ArrayList<Teclado>) listaDispositivos.get("teclados");
+        listaComputadoras = (ArrayList<Computadora>) listaDispositivos.get("computadoras");
         listaMarcas = (String[]) listaDispositivos.get("marcas");
         listaIdiomas = (String[]) listaDispositivos.get("idiomas");
         indice = (Integer) intent.getIntExtra("indice",0);
@@ -89,17 +90,24 @@ public class EditTecladoActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(EditTecladoActivity.this,TecladoActivity.class);
                 Teclado teclado = listaTeclados.get(indice);
                 TextView activo = findViewById(R.id.editTextActivo);
-                activo.setText(teclado.getActivo());
+                teclado.setActivo(activo.getText().toString());
                 TextView pcActivo = findViewById(R.id.editTextPCActivo);
-                pcActivo.setText(teclado.getPc().getActivo());
+                Computadora computer = new Computadora();
+                for(Computadora computadora : listaComputadoras){
+                    if(pcActivo.getText().toString().equals(computadora.getActivo())){
+                        computer = computadora;
+                    }
+                }
+
+                teclado.setPc(computer);
                 TextView marca = findViewById(R.id.editTextMarca);
-                marca.setText(teclado.getMarca());
+                teclado.setMarca(marca.getText().toString());
                 TextView anho = findViewById(R.id.editTextAnho);
-                anho.setText(String.valueOf(teclado.getAnho()));
+                teclado.setAnho(Integer.parseInt(anho.getText().toString()));
                 TextView idioma = findViewById(R.id.editTextIdioma);
-                idioma.setText(teclado.getIdioma());
+                teclado.setIdioma(idioma.getText().toString());
                 TextView modelo = findViewById(R.id.editTextModelo);
-                modelo.setText(String.valueOf(teclado.getModelo()));
+                teclado.setModelo(modelo.getText().toString());
                 listaTeclados.set(indice,teclado);
                 listaDispositivos.put("teclados",listaTeclados);
                 intent2.putExtra("listaDispositivos",listaDispositivos);
